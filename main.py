@@ -1,6 +1,7 @@
 import sys
 import os
 
+from twilio.util import TwilioCapability
 from django.conf import settings
 from django.conf.urls import patterns
 from django.template.response import TemplateResponse
@@ -13,9 +14,19 @@ settings.configure(
     SECRET_KEY='randomsecretkey',
     TEMPLATE_DIRS = (BASE_DIR,),
     ROOT_URLCONF=sys.modules[__name__],
-    TWILIO_ACCOUNT_SID='',
-    TWILIO_AUTH_TOKEN='',
-    TWILIO_APPLICATION_SID='',
+    INSTALLED_APPS = (
+        'django.contrib.contenttypes',
+        'django.contrib.sessions',
+    ),
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    },
+    TWILIO_ACCOUNT_SID='ACxxxxxxxxxx',
+    TWILIO_AUTH_TOKEN='xxxxxxxxxxxx',
+    TWILIO_APPLICATION_SID='APxxxxxxxxxx',
 )
 
 def index(request):
@@ -29,8 +40,17 @@ def index(request):
     twilio_token = capability.generate()
     return TemplateResponse(request, 'browser-phone.html', locals())
 
+def dial_client(request):
+    return TemplateResponse(request, 'dial-client.xml', locals())
+
+def dial_number(request):
+    tocall = request.GET.get('tocall', None)
+    return TemplateResponse(request, 'dial-number.xml', locals())
+
 urlpatterns = patterns('', 
     (r'^$', index),
+    (r'^dial-client/$', dial_client),
+    (r'^dial-number/$', dial_number),
 )
 
 if __name__ == "__main__":
