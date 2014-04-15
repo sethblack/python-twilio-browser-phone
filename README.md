@@ -9,8 +9,8 @@ Twilio's Client Browser Soft Phone implemented in Python and Django. :)
 
 To use:
 
-pip install django
-pip install twilio
+    pip install django
+    pip install twilio
 
-python main.py syncdb
-python main.py runserver
+    python main.py syncdb
+    python main.py runserver
