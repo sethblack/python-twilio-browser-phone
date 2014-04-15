@@ -1,7 +1,7 @@
 python-twilio-browser-phone
 ===========================
 
-Twilio Client Browser Soft Phone on Python
+Twilio Client Browser Soft Phone in Python
 
 https://www.twilio.com/docs/howto/twilio-client-browser-soft-phone
 
