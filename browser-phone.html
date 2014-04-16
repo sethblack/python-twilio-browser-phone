@@ -5,8 +5,10 @@
             Twilio Client Click to Call
         </title>
         <!-- @start snippet -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <script type="text/javascript" src="//static.twilio.com/libs/twiliojs/1.1/twilio.min.js"></script>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script type="text/javascript">
         $(document).ready(function(){
 
@@ -79,33 +81,38 @@
     <body>
         <div align="center">
             <!-- @start snippet -->
-            Number to call: <input type="text" id="tocall" value="">
-            <input type="button" id="call" value="Start Call"/>
-            <input type="button" id="hangup" value="Hangup Call" style="display:none;"/>
-            <div id="status">
+<form class="form-inline" role="form" style="padding: 25px 10px;">
+  <div class="form-group">
+    <label class="sr-only" for="tocall">Number to dial:</label>
+    <input type="text" class="form-control input-lg" name="tocaall" id="tocall" placeholder="(512) 555-1212">
+  </div>
+    
+            <input type="button" id="call" class="btn btn-primary btn-lg" value="Start Call"/>
+            <input type="button" id="hangup" class="btn btn-primary btn-lg" value="Hangup Call" style="display:none;"/></form>
+            <div id="status" class="well" style="width: 20%;">
                 Offline
             </div>
             <div id="dialpad" style="display:none;">
                 <table>
                 <tr>
-                <td><input type="button" value="1" id="button1"></td>
-                <td><input type="button" value="2" id="button2"></td>
-                <td><input type="button" value="3" id="button3"></td>
+                <td><input type="button" value="1" id="button1" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="2" id="button2" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="3" id="button3" class="btn btn-default btn-lg"></td>
                 </tr>
                 <tr>
-                <td><input type="button" value="4" id="button4"></td>
-                <td><input type="button" value="5" id="button5"></td>
-                <td><input type="button" value="6" id="button6"></td>
+                <td><input type="button" value="4" id="button4" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="5" id="button5" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="6" id="button6" class="btn btn-default btn-lg"></td>
                 </tr>
                 <tr>
-                <td><input type="button" value="7" id="button7"></td>
-                <td><input type="button" value="8" id="button8"></td>
-                <td><input type="button" value="9" id="button9"></td>
+                <td><input type="button" value="7" id="button7" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="8" id="button8" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="9" id="button9" class="btn btn-default btn-lg"></td>
                 </tr>
                 <tr>
-                <td><input type="button" value="*" id="buttonstar"></td>
-                <td><input type="button" value="0" id="button0"></td>
-                <td><input type="button" value="#" id="buttonpound"></td>
+                <td><input type="button" value="*" id="buttonstar" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="0" id="button0" class="btn btn-default btn-lg"></td>
+                <td><input type="button" value="#" id="buttonpound" class="btn btn-default btn-lg"></td>
                 </tr>
                 </table>
             </div>
